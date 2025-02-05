@@ -1,50 +1,87 @@
-# React + TypeScript + Vite
+# Real Estate Project Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project allows users to load and display a list of real estate properties from an API. It features a responsive design and is built with React and TypeScript without external libraries (except for SASS).
 
-Currently, two official plugins are available:
+## Live Demo
+[View the project](https://test-task-projects.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Снимок экрана 2025-02-05 в 18 21 11](https://github.com/user-attachments/assets/97cd48cb-7261-4b7b-bcd4-66a3ab35acd1)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
+- Fetches and displays real estate properties from an API.
+- Responsive design for seamless viewing on various devices.
+- Pagination support to navigate through property listings.
+- Image carousel for viewing multiple images of each property.
+- Error handling and loading indicators.
 
-- Configure the top-level `parserOptions` property like this:
+## Tech Stack
+- **React**: Component-based UI
+- **TypeScript**: Type safety and better development experience
+- **SASS**: Styling
+- **Vite**: Fast development server and build tool
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Installation & Setup
+### Prerequisites
+Ensure you have Node.js installed on your system.
+
+### Steps
+1. Clone the repository:
+   ```sh
+   git clone <repository-url>
+   cd project-directory
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
+4. Open the app in your browser at `http://localhost:5173/`
+
+## Project Structure
+```
+├── src/
+│   ├── components/       # React components
+│   ├── api/              # API calls
+│   ├── pages/            # Pages
+├── public/
+├── types.ts              # TS types file
+├── .eslintrc.js          # ESLint configuration
+├── tsconfig.json         # TypeScript configuration
+├── vite.config.ts        # Vite configuration
+└── package.json          # Project dependencies and scripts
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## API Integration
+The project fetches real estate listings using an API request:
+```ts
+const API_URL = "https://crm.server.pro-part.es/api/v1/secondary-projects/integration/projects";
+const ACCESS_KEY = "your-access-key";
+const SECRET_KEY = "your-secret-key";
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+fetch(`${API_URL}?accessKey=${ACCESS_KEY}&secretKey=${SECRET_KEY}&isPagination=true&size=${size}&page=${page}`)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error("API Error:", error));
 ```
+
+## Deployment
+The project is deployed on [Netlify](https://test-task-projects.netlify.app/). To deploy your version:
+1. Build the project:
+   ```sh
+   npm run build
+   ```
+2. Deploy the `dist` folder using Netlify or any static hosting provider.
+
+## License
+This project is licensed under the MIT License.
+
+---
+
+For any issues or feature requests, feel free to open an issue or contribute to the project!
+
+
