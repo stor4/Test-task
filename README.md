@@ -1,50 +1,93 @@
-# React + TypeScript + Vite
+Real Estate Project Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Overview
 
-Currently, two official plugins are available:
+This project allows users to load and display a list of real estate properties from an API. It features a responsive design and is built with React and TypeScript without external libraries (except for SASS).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live Demo
 
-## Expanding the ESLint configuration
+View the project
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![image](https://github.com/user-attachments/assets/2e69d519-10ef-4c4e-87d0-155e9b4782e7)
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Features
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Fetches and displays real estate properties from an API.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Responsive design for seamless viewing on various devices.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Pagination support to navigate through property listings.
+
+Image carousel for viewing multiple images of each property.
+
+Error handling and loading indicators.
+
+Tech Stack
+
+React: Component-based UI
+
+TypeScript: Type safety and better development experience
+
+SASS: Styling
+
+Vite: Fast development server and build tool
+
+Installation & Setup
+
+Prerequisites
+
+Ensure you have Node.js installed on your system.
+
+Steps
+
+Clone the repository:
+
+git clone <repository-url>
+cd project-directory
+
+Install dependencies:
+
+npm install
+
+Start the development server:
+
+npm run dev
+
+Open the app in your browser at http://localhost:5173/
+
+Project Structure
+
+├── src/
+│   ├── components/       # React components
+│   ├── api/              # API calls
+│   ├── pages/            # Pages
+├── public/
+├── types.ts              # TS types file
+├── .eslintrc.js          # ESLint configuration
+├── tsconfig.json         # TypeScript configuration
+├── vite.config.ts        # Vite configuration
+└── package.json          # Project dependencies and scripts
+
+API Integration
+
+The project fetches real estate listings using an API request:
+
+const API_URL = "https://crm.server.pro-part.es/api/v1/secondary-projects/integration/projects";
+const ACCESS_KEY = "your-access-key";
+const SECRET_KEY = "your-secret-key";
+
+fetch(`${API_URL}?accessKey=${ACCESS_KEY}&secretKey=${SECRET_KEY}&isPagination=true&size=${size}&page=${page}`)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error("API Error:", error));
+
+Deployment
+
+The project is deployed on Netlify. To deploy your version:
+
+Build the project:
+
+npm run build
+
+Deploy the dist folder using Netlify or any static hosting provider.
