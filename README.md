@@ -6,6 +6,9 @@ This project allows users to load and display a list of real estate properties f
 ## Live Demo
 [View the project](https://test-task-projects.netlify.app/)
 
+![Снимок экрана 2025-02-05 в 18 21 11](https://github.com/user-attachments/assets/97cd48cb-7261-4b7b-bcd4-66a3ab35acd1)
+
+
 ## Features
 - Fetches and displays real estate properties from an API.
 - Responsive design for seamless viewing on various devices.
