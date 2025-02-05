@@ -28,12 +28,18 @@ const ProjectCard: React.FC<{ project: ProjectCardProps }> = ({ project }) => {
       <div className='projectCard__desc'>
         <p className='projectCard__price'>{project?.generalInfo.price} $</p>
         <div>
-          <p className="projectCard__loc">
-              📍{project?.generalInfo.province}
-          </p>
-          <p className="projectCard__size">
-              🏠 {project?.generalInfo.living_area} m2
-          </p>
+            <p className="projectCard__type">
+            🏡: {project?.generalInfo.type}
+            </p>
+            <p className="projectCard__loc">
+              📍:{project?.generalInfo.province}
+            </p>
+            <p className="projectCard__size">
+              🏠: {project?.generalInfo.living_area} m2
+            </p>
+            <p className="projectCard__rooms">
+              Rooms: {project?.generalInfo.rooms}
+            </p>
         </div>
         </div>
     </li>
