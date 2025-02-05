@@ -33,7 +33,7 @@ function ProjectGrid() {
         <div className="projects__container">
             <h1>Projects</h1>
             <div className="projects__main">
-                {loading && <div className='projects__loader'><img src='../../../public/loader.gif' alt='loading'/></div>}
+                {loading && <div className='projects__loader'><img src='./loader.gif' alt='loading'/></div>}
                 {error && <div className='projects__error'><p>Oops, something went wrong :(<br/>Please reload the page</p></div>}
                 {!loading && 
                     <ul className="projects__grid">
